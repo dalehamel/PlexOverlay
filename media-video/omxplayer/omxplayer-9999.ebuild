@@ -19,9 +19,11 @@ RDEPEND="
         dev-libs/libpcre
         media-libs/raspberrypi-videocore-bin
         media-libs/freetype
-        dev-libs/boost
 		media-video/omxplayer-ffmpeg
-        sys-apps/fbset"
+        sys-apps/fbset
+		=dev-libs/boost-1.50.0
+		=sys-libs/glibc-2.16.0
+		"
 
 DEPEND="${RDEPEND}
 		>=sys-devel/gcc-4.6.0
