@@ -20,7 +20,7 @@ DEPEND="
 >=sys-devel/make-3.81
 "
 RDEPEND="${RDEPEND}"
-
+INSTALL_DIR="${WORKDIR}/ffmpeg_compiled"
 
 src_configure()
 {
@@ -38,10 +38,11 @@ src_configure()
 
 src_compile()
 {
+	mkdir -p $INSTALL_DIR
 	make || die "Could not compile ffmpeg"
-	installcmd="make -j9 DESTDIR=\"${WORKDIR}/ffmpeg_compiled\" install"
+	installcmd="make -j9 DESTDIR=$INSTALL_DIR install"
 	bash -c "$installcmd" || die "Could not install"
-	stripcmd="strip ${WORKDIR}/ffmpeg_compiled/usr/local/lib/*.so" 
+	stripcmd="strip $INSTALL_DIR/usr/local/lib/*.so" 
 	bash -c "$stripcmd" || die "Could not strip symbols"
 
 }
@@ -53,8 +54,8 @@ src_install()
 
 	mkdir -p $LIBDIR
 	mkdir -p $INCDIR
-	cp "${WORKDIR}/ffmpeg_compiled/usr/local/lib/*" $LIBDIR
-	cp "${WORKDIR}/ffmpeg_compiled/usr/local/include/*" $INCDIR
+	cp "$INSTALL_DIR/usr/local/lib/*" $LIBDIR
+	cp "$ISNTALL_DIR/usr/local/include/*" $INCDIR
 
 
 }
