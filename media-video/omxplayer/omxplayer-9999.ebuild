@@ -9,6 +9,7 @@ inherit eutils flag-o-matic git-2 toolchain-funcs
 DESCRIPTION="command line media player for the Raspberry Pi"
 HOMEPAGE="https://github.com/huceke/omxplayer"
 EGIT_REPO_URI="https://github.com/huceke/omxplayer.git"
+EGIT_COMMIT="ec7ac68fa65eabcb491684d371899673cae93fbf" #verified to work, may work on newer
 
 LICENSE="GPL-2"
 SLOT="0"

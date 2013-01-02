@@ -1,7 +1,7 @@
-diff --git Makefile Makefile
-index 120146f..ad72878 100644
---- Makefile
-+++ Makefile
+diff --git a/Makefile b/Makefile
+index 120146f..28b0f8f 100644
+--- a/Makefile
++++ b/Makefile
 @@ -1,10 +1,9 @@
 -include Makefile.include
 +CFLAGS+=-std=c++0x -DSTANDALONE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DTARGET_POSIX -D_LINUX -fPIC -DPIC -D_REENTRANT -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CMAKE_CONFIG -D__VIDEOCORE4__ -U_FORTIFY_SOURCE -Wall -DHAVE_OMXLIB -DUSE_EXTERNAL_FFMPEG  -DHAVE_LIBAVCODEC_AVCODEC_H -DHAVE_LIBAVUTIL_OPT_H -DHAVE_LIBAVUTIL_MEM_H -DHAVE_LIBAVUTIL_AVUTIL_H -DHAVE_LIBAVFORMAT_AVFORMAT_H -DHAVE_LIBAVFILTER_AVFILTER_H -DOMX -DOMX_SKIP64BIT -ftree-vectorize -pipe -DUSE_EXTERNAL_OMX -DTARGET_RASPBERRY_PI -DUSE_EXTERNAL_LIBBCM_HOST -Wno-psabi
@@ -9,8 +9,9 @@ index 120146f..ad72878 100644
 -CFLAGS+=-std=c++0x -DSTANDALONE -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DTARGET_POSIX -D_LINUX -fPIC -DPIC -D_REENTRANT -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CMAKE_CONFIG -D__VIDEOCORE4__ -U_FORTIFY_SOURCE -Wall -DHAVE_OMXLIB -DUSE_EXTERNAL_FFMPEG  -DHAVE_LIBAVCODEC_AVCODEC_H -DHAVE_LIBAVUTIL_OPT_H -DHAVE_LIBAVUTIL_MEM_H -DHAVE_LIBAVUTIL_AVUTIL_H -DHAVE_LIBAVFORMAT_AVFORMAT_H -DHAVE_LIBAVFILTER_AVFILTER_H -DOMX -DOMX_SKIP64BIT -ftree-vectorize -DUSE_EXTERNAL_OMX -DTARGET_RASPBERRY_PI -DUSE_EXTERNAL_LIBBCM_HOST
 -
 -LDFLAGS+=-L./ -lc -lWFC -lGLESv2 -lEGL -lbcm_host -lopenmaxil -lfreetype -lz -Lffmpeg_compiled/usr/local/lib/
-+LDFLAGS+=-L./ -lc -lEGL  -lfreetype -lz -Lffmpeg_compiled/usr/local/lib/
- INCLUDES+=-I./ -Ilinux -Iffmpeg_compiled/usr/local/include/
+-INCLUDES+=-I./ -Ilinux -Iffmpeg_compiled/usr/local/include/
++LDFLAGS+=-L./ -lc -lEGL  -lfreetype -lz -L/usr/lib/omxplayer
++INCLUDES+=-I./ -Ilinux -I/usr/include/omxplayer
  
 +LIBS=-L/opt/vc/lib -lrt -lbcm_host -lopenmaxil -lvcos -lvchiq_arm -lGLESv2 -lkhrn_static -lrt -lpthread -lavutil -lavcodec -lavformat -lswscale -lpcre
  DIST ?= omxplayer-dist
@@ -27,12 +28,24 @@ index 120146f..ad72878 100644
  
  clean:
  	for i in $(OBJS); do (if test -e "$$i"; then ( rm $$i ); fi ); done
-@@ -53,7 +52,7 @@ clean:
+@@ -53,19 +52,12 @@ clean:
  	@rm -f omxplayer.bin
  	@rm -rf $(DIST)
  	@rm -f omxplayer-dist.tar.gz
 -	make -f Makefile.ffmpeg clean
 +	#make -f Makefile.ffmpeg clean
  
- ffmpeg:
- 	@rm -rf ffmpeg
+-ffmpeg:
+-	@rm -rf ffmpeg
+-	make -f Makefile.ffmpeg
+-	make -f Makefile.ffmpeg install
+ 
+ dist: omxplayer.bin
+-	mkdir -p $(DIST)/usr/lib/omxplayer
+ 	mkdir -p $(DIST)/usr/bin
+ 	mkdir -p $(DIST)/usr/share/doc
+ 	cp omxplayer omxplayer.bin $(DIST)/usr/bin
+ 	cp COPYING $(DIST)/usr/share/doc/
+ 	cp README.md $(DIST)/usr/share/doc/README
+-	cp -a ffmpeg_compiled/usr/local/lib/*.so* $(DIST)/usr/lib/omxplayer/
+-	tar -czf omxplayer-dist.tar.gz $(DIST)

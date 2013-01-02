@@ -39,14 +39,17 @@ src_configure()
 src_compile()
 {
 	make || die "Could not compile ffmpeg"
+	installcmd="make -j9 DESTDIR=\"${WORKDIR}/ffmpeg_compiled\" install"
+	bash -c "$installcmd" || die "Could not install"
+	stripcmd="strip ${WORKDIR}/ffmpeg_compiled/usr/local/lib/*.so" 
+	bash -c "stripcmd" || die "Could not strip symbols"
+
 }
 
 src_install()
 {
 	LIBDIR="${D}/usr/lib/omxplayer"
 	INCDIR="${D}/usr/include/omxplayer"
-	make -j9 DESTDIR="${WORKDIR}/ffmpeg_compiled" install
-	strip "${WORKDIR}/ffmpeg_compiled/usr/local/lib/*.so"
 
 	mkdir -p $LIBDIR
 	mkdir -p $INCDIR
