@@ -26,9 +26,9 @@ DEPEND="
 	dev-python/twisted
 	media-video/omxplayer
 	>=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
-	>=dev-libs/DirectFB-1.4.9-r1[X,fbcon]
-	>=media-libs/libsdl-1.2.15-r2[X,alsa,audio,dga,directfb,fbcon,opengl,video]
-	>=dev-python/pygame-1.9.2_pre20120101-r1[X]
+	>=dev-libs/DirectFB-1.4.9-r1[fbcon]
+	>=media-libs/libsdl-1.2.15-r2[alsa,audio,dga,directfb,fbcon,opengl,video]
+	>=dev-python/pygame-1.9.2_pre20120101-r1
 	"
 
 RDEPEND="
