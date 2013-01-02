@@ -42,7 +42,7 @@ src_compile()
 	installcmd="make -j9 DESTDIR=\"${WORKDIR}/ffmpeg_compiled\" install"
 	bash -c "$installcmd" || die "Could not install"
 	stripcmd="strip ${WORKDIR}/ffmpeg_compiled/usr/local/lib/*.so" 
-	bash -c "stripcmd" || die "Could not strip symbols"
+	bash -c "$stripcmd" || die "Could not strip symbols"
 
 }
 
