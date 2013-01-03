@@ -15,16 +15,17 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
-DEPEND="
-		>=sys-devel/gcc-4.6.0
-		media-video/omxplayer-ffmpeg
+RDEPEND="
         dev-libs/libpcre
         media-libs/raspberrypi-videocore-bin
+        media-libs/freetype
         dev-libs/boost
-        media-libs/freetype"
-RDEPEND="${RDEPEND}
+		media-video/omxplayer-ffmpeg
         sys-apps/fbset"
 
+DEPEND="${RDEPEND}
+		>=sys-devel/gcc-4.6.0
+		"
 src_prepare() {
         einfo "If your emerge fails with an error complaining that"
         einfo "'OMX_CONFIG_BRCMAUDIODOWNMIXCOEFFICIENTS' was not"
