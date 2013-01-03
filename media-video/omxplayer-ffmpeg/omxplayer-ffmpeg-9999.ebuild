@@ -54,9 +54,9 @@ src_install()
 
 	mkdir -p $LIBDIR
 	mkdir -p $INCDIR
-	copylibs="find $INSTALL_DIR/usr/local/lib/ | xargs cp $LIBDIR"
+	copylibs="cp -r $INSTALL_DIR/usr/local/lib/* $LIBDIR"
 	bash -c "$copylibs"	|| die "Could not copy libraries"
-	copyhdr="find $ISNTALL_DIR/usr/local/include/ | xargs cp $INCDIR"
+	copyhdr="cp -r $INSTALL_DIR/usr/local/include/* $INCDIR"
 	bash -c "$copyhdr" || die "Could not copy headers"
 
 
