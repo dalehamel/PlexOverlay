@@ -1,5 +1,5 @@
 diff --git a/Makefile b/Makefile
-index 120146f..28b0f8f 100644
+index 120146f..ae77fc4 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -1,10 +1,9 @@
@@ -11,13 +11,13 @@ index 120146f..28b0f8f 100644
 -LDFLAGS+=-L./ -lc -lWFC -lGLESv2 -lEGL -lbcm_host -lopenmaxil -lfreetype -lz -Lffmpeg_compiled/usr/local/lib/
 -INCLUDES+=-I./ -Ilinux -Iffmpeg_compiled/usr/local/include/
 +LDFLAGS+=-L./ -lc -lEGL  -lfreetype -lz -L/usr/lib/omxplayer
-+INCLUDES+=-I./ -Ilinux -I/usr/include/omxplayer
++INCLUDES=-I/usr/include/freetype2 -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include -Ilinux -I. -I/usr/include/omxplayer
  
 +LIBS=-L/opt/vc/lib -lrt -lbcm_host -lopenmaxil -lvcos -lvchiq_arm -lGLESv2 -lkhrn_static -lrt -lpthread -lavutil -lavcodec -lavformat -lswscale -lpcre
  DIST ?= omxplayer-dist
  
  SRC=linux/XMemUtils.cpp \
-@@ -44,8 +43,8 @@ list_test:
+@@ -44,28 +43,19 @@ list_test:
  	$(CXX) -O3 -o list_test list_test.cpp
  
  omxplayer.bin: $(OBJS)
@@ -28,12 +28,11 @@ index 120146f..28b0f8f 100644
  
  clean:
  	for i in $(OBJS); do (if test -e "$$i"; then ( rm $$i ); fi ); done
-@@ -53,19 +52,12 @@ clean:
+ 	@rm -f omxplayer.old.log omxplayer.log
  	@rm -f omxplayer.bin
  	@rm -rf $(DIST)
- 	@rm -f omxplayer-dist.tar.gz
+-	@rm -f omxplayer-dist.tar.gz
 -	make -f Makefile.ffmpeg clean
-+	#make -f Makefile.ffmpeg clean
  
 -ffmpeg:
 -	@rm -rf ffmpeg
