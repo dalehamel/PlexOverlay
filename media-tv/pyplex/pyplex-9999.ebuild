@@ -20,9 +20,11 @@ IUSE=""
 
 DEPEND="
 	dev-python/setuptools
+	dev-python/pexpect
 	dev-python/pip
-	media-video/omxplayer
 	dev-python/requests
+	www-servers/tornado
+	media-video/omxplayer
 	>=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
 	>=dev-libs/DirectFB-1.4.9-r1[X,fbcon]
 	>=media-libs/libsdl-1.2.15-r2[X,alsa,audio,dga,directfb,fbcon,opengl,video]
@@ -38,3 +40,8 @@ python_prepare_all() {
 	distutils_python_prepare_all
 }
 
+pkg_postinst()
+{
+	rc-update add avahi-daemon
+	rc-config start avahi-daemon
+}
