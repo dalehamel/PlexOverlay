@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
+EAPI=4
 
 PYTHON_COMPAT=( python{2_6,2_7} )
-inherit eutils flag-o-matic git-2 toolchain-funcs distutils-r1
+inherit eutils flag-o-matic git-2 toolchain-funcs distutils
 
 DESCRIPTION="Interfaceless Plex client for Raspberry Pi"
 HOMEPAGE="https://github.com/dalehamel/pyplex"
@@ -13,28 +13,28 @@ EGIT_REPO_URI="https://github.com/dalehamel/pyplex.git"
 #EGIT_COMMIT="ec7ac68fa65eabcb491684d371899673cae93fbf" #verified to work, may work on newer
 
 
-
-
-
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~arm"
 IUSE=""
 
-RDEPEND="
-	"
-DEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]
+DEPEND="
+	dev-python/setuptools
+	dev-python/pip
 	media-video/omxplayer
-	www-servers/tornado
 	dev-python/requests
+	>=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
 	>=dev-libs/DirectFB-1.4.9-r1[X,fbcon]
 	>=media-libs/libsdl-1.2.15-r2[X,alsa,audio,dga,directfb,fbcon,opengl,video]
 	>=dev-python/pygame-1.9.2_pre20120101-r1[X]
 	"
 
+RDEPEND="
+${DEPEND}
+	"
+
 
 python_prepare_all() {
-	distutils-r1_python_prepare_all
+	distutils_python_prepare_all
 }
 
