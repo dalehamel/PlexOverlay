@@ -23,7 +23,7 @@ DEPEND="
 	dev-python/pexpect
 	dev-python/pip
 	dev-python/requests
-	www-servers/tornado
+	dev-python/twisted
 	media-video/omxplayer
 	>=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
 	>=dev-libs/DirectFB-1.4.9-r1[X,fbcon]

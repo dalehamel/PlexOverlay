@@ -9,7 +9,7 @@ inherit eutils flag-o-matic git-2 toolchain-funcs
 DESCRIPTION="command line media player for the Raspberry Pi"
 HOMEPAGE="https://github.com/huceke/omxplayer"
 EGIT_REPO_URI="https://github.com/huceke/omxplayer.git"
-EGIT_COMMIT="ec7ac68fa65eabcb491684d371899673cae93fbf" #verified to work, may work on newer
+EGIT_COMMIT="52373003d750a8d979e5d2c716b8abb05aaa1a23" #verified to work, may work on newer
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -21,12 +21,12 @@ RDEPEND="
         media-libs/freetype
 		media-video/omxplayer-ffmpeg
         sys-apps/fbset
-		=dev-libs/boost-1.50.0
-		=sys-libs/glibc-2.16.0
+		>=dev-libs/boost-1.50.0
+		>=sys-libs/glibc-2.16.0
+		>=sys-devel/gcc-4.6.0
 		"
 
 DEPEND="${RDEPEND}
-		>=sys-devel/gcc-4.6.0
 		"
 src_prepare() {
         einfo "If your emerge fails with an error complaining that"
