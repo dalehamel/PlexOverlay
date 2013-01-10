@@ -59,8 +59,6 @@ media-video/rtmpdump
 media-sound/moc
 media-sound/wavpack
 media-sound/lame
-media-sound/pulseaudio
-media-libs/alsa-lib
 media-libs/flac
 media-libs/fontconfig
 media-libs/freetype
@@ -80,13 +78,8 @@ media-libs/libjpeg-turbo
 media-libs/libmad
 media-libs/libmms
 media-libs/libsamplerate
-media-libs/libsdl[audio,opengl,video,X]
-media-libs/sdl-gfx
-media-libs/sdl-mixer
-media-libs/sdl-sound
 media-libs/tiff
 >=media-libs/taglib-1.8-r1
->=media-libs/sdl-image-1.2.10[gif,jpeg,png]
 >=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
 =net-fs/afpfs-ng-9999
 net-fs/samba
@@ -97,13 +90,20 @@ net-wireless/bluez
 sys-apps/lsb-release
 sys-apps/pmount
 sys-apps/dbus
-x11-proto/xineramaproto
 x11-apps/xdpyinfo
 x11-libs/qt-core[qt3support]
-x11-libs/libvdpau
-x11-libs/libva[opengl]
-=x11-libs/libva-1.1.0
 "
+#x11-libs/libva[opengl]
+#=x11-libs/libva-1.1.0
+#x11-libs/libvdpau
+#x11-proto/xineramaproto
+#media-libs/libsdl[audio,opengl,video,X]
+#media-libs/sdl-gfx
+#media-libs/sdl-mixer
+#media-libs/sdl-sound
+#>=media-libs/sdl-image-1.2.10[gif,jpeg,png]
+#media-sound/pulseaudio
+#media-libs/alsa-lib
 
 #virtual/jdk have to make my own for rbp based on java 8
 #http://jdk8.java.net/fxarmpreview/
