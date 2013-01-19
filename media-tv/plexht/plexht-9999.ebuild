@@ -9,23 +9,38 @@ inherit eutils flag-o-matic git-2 toolchain-funcs
 DESCRIPTION="Plex home theatre"
 HOMEPAGE="https://github.com/plexinc/plex-home-theater-public.git"
 EGIT_REPO_URI="https://github.com/plexinc/plex-home-theater-public.git"
-#EGIT_COMMIT="52373003d750a8d979e5d2c716b8abb05aaa1a23" #verified to work, may work on newer
+#EGIT_COMMIT="2d9bddd5a1f910e3f8fc20109ad0450f4aa5701a" #verified to work, may work on newer
+EGIT_BRANCH="pht-frodo"
+
+#http://forums.plexapp.com/index.php/topic/56099-experimental-ubuntu-package-for-plexht/
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 IUSE=""
+
+#Note: you must set XBMC_HOME with
+#export XBMC_HOME=/usr/local/share/XBMC
+#in order to run.
+#To do: make a wrapper
+
+
+#note: it is quite likely that not all of these are required
+# This dependency list is taken from xbmc ebuild, and dependencies for
+# 
 RDEPEND="
+app-pda/libplist
 app-i18n/enca
 app-doc/doxygen
 dev-db/mysql
 dev-db/sqlite
 dev-lang/python:2.7
 dev-util/cmake
+>=dev-libs/libcec-2.0.5
 dev-libs/yajl
 dev-libs/lzo 
 dev-libs/libcdio
-dev-libs/fribidi
+=dev-libs/fribidi-0.19.2
 dev-libs/boost
 dev-libs/tinyxml
 dev-python/pysqlite
@@ -41,8 +56,10 @@ media-libs/glew
 media-sound/qmmp
 media-video/vlc
 media-video/rtmpdump
+>=media-video/ffmpeg-0.10.3
 media-sound/moc
 media-sound/wavpack
+media-sound/lame
 media-libs/alsa-lib
 media-libs/flac
 media-libs/fontconfig
@@ -54,6 +71,7 @@ media-libs/jasper
 media-libs/libmms
 media-libs/libmodplug
 media-libs/libmpeg2
+=media-libs/libshairport-9999
 media-libs/libogg
 media-libs/libpng
 media-libs/libass
@@ -75,20 +93,22 @@ sys-apps/dbus
 virtual/jdk
 x11-proto/xineramaproto
 x11-apps/xdpyinfo
-
+x11-libs/qt-core[qt3support]
+x11-libs/libvdpau
 "
 
 DEPEND="${RDEPEND}
 "
 
 src_configure() {
-	./bootstrap
-	./configure
+#	./bootstrap || die "Could not bootstrap"
+#	./configure || die "Could not configure"
+	cmake . || die "Could not run cmake"
 }
 
 #src_compile()
 #{
 #}
-#
+##
 #src_install() {
 #}
