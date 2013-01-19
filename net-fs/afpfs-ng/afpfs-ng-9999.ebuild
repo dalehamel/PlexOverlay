@@ -33,6 +33,7 @@ src_unpack() {
 	if [[ ${PV} == "9999" ]] ; then
 		git-2_src_unpack
 	fi
+
 }
 
 src_prepare() {
@@ -58,7 +59,12 @@ src_configure() {
 		$(use_enable static-libs static)
 }
 
-src_install() {
+src_install(){
 	default
+
 	use static-libs || find "${ED}" -name '*.la' -delete
+
+	mkdir -p ${D}/usr/include/
+	cp -r ${S}/include/  ${D}/usr/include/afpfs-ng || die "Could not copy headers"
+
 }

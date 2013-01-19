@@ -89,16 +89,21 @@ net-fs/samba
 <=net-libs/libmicrohttpd-0.9.21
 net-libs/libssh
 net-misc/curl
+net-wireless/bluez
 sys-apps/lsb-release
 sys-apps/pmount
 sys-apps/dbus
-virtual/jdk
 x11-proto/xineramaproto
 x11-apps/xdpyinfo
 x11-libs/qt-core[qt3support]
 x11-libs/libvdpau
 x11-libs/libva[opengl]
+=x11-libs/libva-1.1.0
 "
+
+#virtual/jdk have to make my own for rbp based on java 8
+#http://jdk8.java.net/fxarmpreview/
+
 
 DEPEND="${RDEPEND}
 "
