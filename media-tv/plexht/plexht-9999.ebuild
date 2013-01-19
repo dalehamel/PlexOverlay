@@ -28,7 +28,9 @@ IUSE=""
 #note: it is quite likely that not all of these are required
 # This dependency list is taken from xbmc ebuild, and dependencies for
 # 
+# Note to self, java is actually required for build. Re-add it asap
 RDEPEND="
+app-arch/zip
 app-pda/libplist
 app-i18n/enca
 app-doc/doxygen
@@ -85,6 +87,7 @@ media-libs/tiff
 >=media-libs/taglib-1.8-r1
 >=media-libs/sdl-image-1.2.10[gif,jpeg,png]
 >=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
+=net-fs/afpfs-ng-9999
 net-fs/samba
 <=net-libs/libmicrohttpd-0.9.21
 net-libs/libssh
