@@ -8,7 +8,7 @@ inherit eutils flag-o-matic git-2 toolchain-funcs
 
 DESCRIPTION="Plex home theatre"
 HOMEPAGE="https://github.com/plexinc/plex-home-theater-public.git"
-EGIT_REPO_URI="https://github.com/plexinc/plex-home-theater-public.git"
+EGIT_REPO_URI="https://github.com/dalehamel/xbmc.git"
 #EGIT_COMMIT="2d9bddd5a1f910e3f8fc20109ad0450f4aa5701a" #verified to work, may work on newer
 EGIT_BRANCH="pht-frodo"
 
@@ -38,6 +38,7 @@ dev-db/mysql
 dev-db/sqlite
 dev-lang/python:2.7
 dev-util/cmake
+dev-util/ninja
 >=dev-libs/libcec-2.0.5
 dev-libs/yajl
 dev-libs/lzo 
@@ -111,6 +112,7 @@ x11-libs/libva[opengl]
 DEPEND="${RDEPEND}
 "
 
+#-GNinja should be faster
 src_configure() {
 #	./bootstrap || die "Could not bootstrap"
 #	./configure || die "Could not configure"
