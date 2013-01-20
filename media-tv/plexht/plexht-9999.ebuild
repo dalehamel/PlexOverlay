@@ -95,6 +95,7 @@ x11-proto/xineramaproto
 x11-apps/xdpyinfo
 x11-libs/qt-core[qt3support]
 x11-libs/libvdpau
+x11-libs/libva
 "
 
 DEPEND="${RDEPEND}
