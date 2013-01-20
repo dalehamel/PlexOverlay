@@ -60,6 +60,7 @@ media-video/rtmpdump
 media-sound/moc
 media-sound/wavpack
 media-sound/lame
+media-sound/pulseaudio
 media-libs/alsa-lib
 media-libs/flac
 media-libs/fontconfig
