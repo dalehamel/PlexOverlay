@@ -47,13 +47,9 @@ dev-python/pysqlite
 dev-util/gperf
 dev-vcs/cvs
 dev-lang/swig
-net-fs/samba
-<=net-libs/libmicrohttpd-0.9.21
-net-libs/libssh
-net-misc/curl
 media-libs/gd
 media-libs/glew
-media-sound/qmmp
+>=media-sound/qmmp-0.6.6
 media-video/vlc
 media-video/rtmpdump
 >=media-video/ffmpeg-0.10.3
@@ -88,6 +84,11 @@ media-libs/sdl-sound
 media-libs/tiff
 >=media-libs/taglib-1.8-r1
 >=media-libs/sdl-image-1.2.10[gif,jpeg,png]
+>=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
+net-fs/samba
+<=net-libs/libmicrohttpd-0.9.21
+net-libs/libssh
+net-misc/curl
 sys-apps/lsb-release
 sys-apps/pmount
 sys-apps/dbus
@@ -96,7 +97,7 @@ x11-proto/xineramaproto
 x11-apps/xdpyinfo
 x11-libs/qt-core[qt3support]
 x11-libs/libvdpau
-x11-libs/libva
+x11-libs/libva[opengl]
 "
 
 DEPEND="${RDEPEND}
