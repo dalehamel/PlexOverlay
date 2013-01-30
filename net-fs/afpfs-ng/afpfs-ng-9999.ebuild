@@ -20,6 +20,7 @@ HOMEPAGE="http://sourceforge.net/projects/afpfs-ng/"
 LICENSE="LGPL-2"
 SLOT="0"
 IUSE="fuse static-libs"
+KEYWORDS="~amd64 ~x86 ~arm"
 
 RDEPEND="sys-libs/readline
 	dev-libs/gmp

@@ -16,7 +16,7 @@ EGIT_BRANCH="pht-frodo"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~arm"
 IUSE=""
 
 #Note: you must set XBMC_HOME with
@@ -33,8 +33,6 @@ RDEPEND="
 app-arch/zip
 app-pda/libplist
 app-i18n/enca
-app-doc/doxygen
-dev-db/mysql
 dev-db/sqlite
 dev-lang/python:2.7
 dev-util/cmake
@@ -42,18 +40,13 @@ dev-util/ninja
 >=dev-libs/libcec-2.0.5
 dev-libs/yajl
 dev-libs/lzo 
-dev-libs/libcdio
 =dev-libs/fribidi-0.19.2
-dev-libs/boost
+=dev-libs/boost-1.49.0-r2
 dev-libs/tinyxml
 dev-python/pysqlite
 dev-util/gperf
-dev-vcs/cvs
-dev-lang/swig
 media-libs/gd
 media-libs/glew
->=media-sound/qmmp-0.6.6
-media-video/vlc
 media-video/rtmpdump
 >=media-video/ffmpeg-0.10.3
 media-sound/moc
@@ -64,35 +57,26 @@ media-libs/fontconfig
 media-libs/freetype
 media-libs/faac
 media-libs/faad2
-media-libs/jbigkit
-media-libs/jasper
-media-libs/libmms
 media-libs/libmodplug
 media-libs/libmpeg2
 =media-libs/libshairport-9999
 media-libs/libogg
 media-libs/libpng
 media-libs/libass
-media-libs/libbluray
 media-libs/libjpeg-turbo
 media-libs/libmad
 media-libs/libmms
-media-libs/libsamplerate
 media-libs/tiff
 >=media-libs/taglib-1.8-r1
->=net-dns/avahi-0.6.30-r3[dbus,gtk,python]
-=net-fs/afpfs-ng-9999
+>=net-dns/avahi-0.6.30-r3[dbus,python]
 net-fs/samba
 <=net-libs/libmicrohttpd-0.9.21
 net-libs/libssh
 net-misc/curl
 net-wireless/bluez
-sys-apps/lsb-release
-sys-apps/pmount
-sys-apps/dbus
-x11-apps/xdpyinfo
-x11-libs/qt-core[qt3support]
 "
+#=net-fs/afpfs-ng-9999
+
 #x11-libs/libva[opengl]
 #=x11-libs/libva-1.1.0
 #x11-libs/libvdpau
@@ -116,7 +100,7 @@ DEPEND="${RDEPEND}
 src_configure() {
 #	./bootstrap || die "Could not bootstrap"
 #	./configure || die "Could not configure"
-	cmake . || die "Could not run cmake"
+	cmake -DCMAKE_BUILD_TYPE=Debug . || die "Could not run cmake"
 }
 
 #src_compile()
