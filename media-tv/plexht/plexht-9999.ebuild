@@ -8,7 +8,7 @@ inherit eutils flag-o-matic git-2 toolchain-funcs
 
 DESCRIPTION="Plex home theatre"
 HOMEPAGE="https://github.com/plexinc/plex-home-theater-public.git"
-EGIT_REPO_URI="https://github.com/dalehamel/xbmc.git"
+EGIT_REPO_URI="https://github.com/dalehamel/plex-home-theatre.git"
 #EGIT_COMMIT="2d9bddd5a1f910e3f8fc20109ad0450f4aa5701a" #verified to work, may work on newer
 EGIT_BRANCH="pht-frodo"
 
@@ -40,6 +40,7 @@ dev-util/ninja
 >=dev-libs/libcec-2.0.5
 dev-libs/yajl
 dev-libs/lzo 
+dev-libs/libcdio
 =dev-libs/fribidi-0.19.2
 =dev-libs/boost-1.49.0-r2
 dev-libs/tinyxml
@@ -67,6 +68,7 @@ media-libs/libjpeg-turbo
 media-libs/libmad
 media-libs/libmms
 media-libs/tiff
+media-libs/libsamplerate
 >=media-libs/taglib-1.8-r1
 >=net-dns/avahi-0.6.30-r3[dbus,python]
 net-fs/samba
@@ -101,6 +103,7 @@ src_configure() {
 #	./bootstrap || die "Could not bootstrap"
 #	./configure || die "Could not configure"
 	cmake -DCMAKE_BUILD_TYPE=Debug . || die "Could not run cmake"
+	#ln -sf /opt/vc/lib/* /usr/lib || die "Could not symbolically link videocore libraries to /usr/lib"
 }
 
 #src_compile()
