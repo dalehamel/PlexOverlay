@@ -10,7 +10,8 @@ DESCRIPTION="Plex home theatre"
 HOMEPAGE="https://github.com/plexinc/plex-home-theater-public.git"
 EGIT_REPO_URI="https://github.com/dalehamel/plex-home-theatre.git"
 #EGIT_COMMIT="2d9bddd5a1f910e3f8fc20109ad0450f4aa5701a" #verified to work, may work on newer
-EGIT_BRANCH="pht-frodo"
+#EGIT_BRANCH="pht-frodo"
+EGIT_BRANCH="unstable"
 
 #http://forums.plexapp.com/index.php/topic/56099-experimental-ubuntu-package-for-plexht/
 
@@ -37,7 +38,7 @@ dev-db/sqlite
 dev-lang/python:2.7
 dev-util/cmake
 dev-util/ninja
->=dev-libs/libcec-2.0.5
+=dev-libs/libcec-9999
 dev-libs/yajl
 dev-libs/lzo 
 dev-libs/libcdio
@@ -69,6 +70,11 @@ media-libs/libmad
 media-libs/libmms
 media-libs/tiff
 media-libs/libsamplerate
+media-libs/libsdl[audio,opengl,video]
+media-libs/sdl-mixer
+media-libs/sdl-sound
+media-libs/sdl-gfx
+>=media-libs/sdl-image-1.2.10[gif,jpeg,png]
 >=media-libs/taglib-1.8-r1
 >=net-dns/avahi-0.6.30-r3[dbus,python]
 net-fs/samba
@@ -83,11 +89,6 @@ net-wireless/bluez
 #=x11-libs/libva-1.1.0
 #x11-libs/libvdpau
 #x11-proto/xineramaproto
-#media-libs/libsdl[audio,opengl,video,X]
-#media-libs/sdl-gfx
-#media-libs/sdl-mixer
-#media-libs/sdl-sound
-#>=media-libs/sdl-image-1.2.10[gif,jpeg,png]
 #media-sound/pulseaudio
 #media-libs/alsa-lib
 
