@@ -38,7 +38,6 @@ app-i18n/enca
 dev-db/sqlite
 dev-lang/python:2.7
 dev-util/cmake
-dev-util/ninja
 =dev-libs/libcec-9999
 dev-libs/yajl
 dev-libs/lzo 
@@ -70,19 +69,20 @@ media-libs/libmad
 media-libs/libmms
 media-libs/tiff
 media-libs/libsamplerate
-media-libs/libsdl[audio,opengl,video]
 =media-libs/raspberrypi-userland-9999
-media-libs/sdl-gfx
->=media-libs/sdl-image-1.2.10[gif,jpeg,png]
 >=media-libs/taglib-1.8-r1
 >=net-dns/avahi-0.6.30-r3[dbus,python]
-net-fs/samba
 <=net-libs/libmicrohttpd-0.9.21
 net-libs/libssh
 net-misc/curl
 net-wireless/bluez
 "
+#net-fs/samba
+#dev-util/ninja
 #=net-fs/afpfs-ng-9999
+#media-libs/libsdl[audio,opengl,video]
+#media-libs/sdl-gfx
+#>=media-libs/sdl-image-1.2.10[gif,jpeg,png]
 
 #x11-libs/libva[opengl]
 #=x11-libs/libva-1.1.0
@@ -100,10 +100,7 @@ DEPEND="${RDEPEND}
 
 #-GNinja should be faster
 src_configure() {
-#	./bootstrap || die "Could not bootstrap"
-#	./configure || die "Could not configure"
 	cmake -DCMAKE_BUILD_TYPE=Debug . || die "Could not run cmake"
-	#ln -sf /opt/vc/lib/* /usr/lib || die "Could not symbolically link videocore libraries to /usr/lib"
 }
 
 #src_compile()

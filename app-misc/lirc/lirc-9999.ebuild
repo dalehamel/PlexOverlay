@@ -339,7 +339,8 @@ src_configure() {
 		$(use_with X x) \
 		${MY_OPTS} \
 		ABI="${KERNEL_ABI}" \
-		ARCH="$(tc-arch-kernel)"
+		ARCH="$(tc-arch-kernel)"\
+		--with-driver=all
 }
 
 src_compile() {
