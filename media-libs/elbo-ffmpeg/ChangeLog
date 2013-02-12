@@ -1,0 +1,13 @@
+# ChangeLog for media-video/omxplayer
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  23 Jul 2012; Michael Weber <xmw@gentoo.org> omxplayer-9999.ebuild:
+  rbpi -> raspberrypi
+
+*omxplayer-9999 (18 Jun 2012)
+
+  18 Jun 2012; Michael Weber <xmw@gentoo.org> +omxplayer-9999.ebuild,
+  +files/omxplayer-9999-Makefile.patch, +files/omxplayer-9999-wrapper.patch,
+  +metadata.xml:
+  Initial import

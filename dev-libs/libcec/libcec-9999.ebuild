@@ -12,7 +12,9 @@ HOMEPAGE="http://libcec.pulse-eight.com"
 #SRC_URI="http://github.com/Pulse-Eight/${PN}/tarball/${P} -> ${P}.tar.gz"
 
 EGIT_REPO_URI="https://github.com/Pulse-Eight/libcec.git"
-EGIT_BRANCH="master"
+#EGIT_BRANCH="master"
+EGIT_BRANCH="release"
+#EGIT_BRANCH="libcec210"
 
 
 

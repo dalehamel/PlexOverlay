@@ -30,6 +30,7 @@ IUSE=""
 # This dependency list is taken from xbmc ebuild, and dependencies for
 # 
 # Note to self, java is actually required for build. Re-add it asap
+#app-misc/lirc
 RDEPEND="
 app-arch/zip
 app-pda/libplist
@@ -48,12 +49,11 @@ dev-libs/tinyxml
 dev-python/pysqlite
 dev-util/gperf
 media-libs/gd
-media-libs/glew
 media-video/rtmpdump
->=media-video/ffmpeg-0.10.3
 media-sound/moc
 media-sound/wavpack
 media-sound/lame
+=media-libs/elbo-ffmpeg-9999
 media-libs/flac
 media-libs/fontconfig
 media-libs/freetype
@@ -71,8 +71,7 @@ media-libs/libmms
 media-libs/tiff
 media-libs/libsamplerate
 media-libs/libsdl[audio,opengl,video]
-media-libs/sdl-mixer
-media-libs/sdl-sound
+=media-libs/raspberrypi-userland-9999
 media-libs/sdl-gfx
 >=media-libs/sdl-image-1.2.10[gif,jpeg,png]
 >=media-libs/taglib-1.8-r1
