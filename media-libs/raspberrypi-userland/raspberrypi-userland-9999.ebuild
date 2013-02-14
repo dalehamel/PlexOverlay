@@ -59,4 +59,6 @@ src_install() {
 	mkdir -p ${D}/usr/lib
 	cd ${D}/usr/lib
 	bash -lc "ln -s ../../opt/vc/lib/* ."
+	cd ${D}/opt/vc/include
+	bash -lc "ln -s interface/vmcs_host/linux/vchost_config.h ." #for CEC
 }

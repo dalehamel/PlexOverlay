@@ -14,7 +14,7 @@ KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="
-dev-util/rasplex-util
+dev-util/rasplex-utils
 media-tv/plexht
 "
 RDEPEND="${DEPEND}"

@@ -29,13 +29,21 @@ app-admin/sudo
 app-editors/vim
 app-portage/gentoolkit
 dev-util/oprofile
+dev-util/google-perftools:1
 net-misc/ntp
-net-misc/wicd
+net-misc/wicd[-gtk]
 sys-apps/usbutils
 sys-block/parted
+sys-devel/gdb
 "
 
 src_install(){
 
 	bash -lc "cp -r ${S}/* ${D} || exit 1"  || die "Could not copy rasplex files"
+}
+
+pkg_postinst(){
+
+	echo "Initializing rasplex..."
+	bash -lc "/usr/bin/init-rasplex.sh"
 }
